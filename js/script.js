@@ -80,9 +80,9 @@ function checkAnswer(userAnswer) {
     clearInterval(timer);
 
     // Elementos de áudio para os sons
-const successSound = new Audio("songs/short-crowd-cheer-6713.mp3");
-const errorSound = new Audio("songs/wah-wah-sad-trombone-6347.mp3");
-const EndOfTimeSound = new Audio("songs/wrong-47985.mp3");
+const successSound = new Audio("sounds/short-crowd-cheer-6713.mp3");
+const errorSound = new Audio("sounds/wah-wah-sad-trombone-6347.mp3");
+const EndOfTimeSound = new Audio("sounds/wrong-47985.mp3");
 
 // Função para reproduzir o som de sucesso
 function playSuccessSound() {
