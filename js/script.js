@@ -79,9 +79,10 @@ function checkAnswer(userAnswer) {
 
     clearInterval(timer);
 
-    // Crie elementos de áudio para os sons
+    // Elementos de áudio para os sons
 const successSound = new Audio("songs/short-crowd-cheer-6713.mp3");
 const errorSound = new Audio("songs/wah-wah-sad-trombone-6347.mp3");
+const EndOfTimeSound = new Audio("songs/wrong-47985.mp3");
 
 // Função para reproduzir o som de sucesso
 function playSuccessSound() {
@@ -93,15 +94,22 @@ function playErrorSound() {
     errorSound.play();
 }
 
+// Função para reproduzir o som de tempo esgotado
+function playEndOfTimeSound() {
+    EndOfTimeSound.play();
+}
+
 // Exemplo de uso:
 // Quando a resposta do usuário for avaliada (certa ou errada), chame a função apropriada.
 // Por exemplo:
 if (userAnswer === correctAnswer) {
     playSuccessSound();
     // Outras ações para resposta correta
-} else {
+} else if (userAnswer !== null) {
     playErrorSound();
     // Outras ações para resposta incorreta
+} else {
+    playEndOfTimeSound();
 }
 
     if (userAnswer !== null && Math.abs(userAnswer - correctAnswer) < 0.01) {
