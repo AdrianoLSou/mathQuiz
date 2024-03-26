@@ -169,6 +169,12 @@ answerElement.addEventListener("keydown", function(event) {
 });
 
 generateQuestionButton.addEventListener("click", generateQuestion);
+// generateQuestionButton.addEventListener("click", () =>{
+//     if (!questionGenerated)
+// {
+//     generateQuestion();
+//     startTimer();
+// }});
 
 endQuizButton.addEventListener("click", () => {
     clearInterval(timer);
@@ -178,4 +184,4 @@ endQuizButton.addEventListener("click", () => {
 });
 
 // Iniciar o quiz com uma pergunta
-generateQuestion();
+// generateQuestion();
