@@ -127,14 +127,19 @@ if (userAnswer === correctAnswer) {
     questionGenerated = false; // Resposta enviada, esperando nova pergunta.
 }
 
+const ticTacSound = new Audio("sounds/tic-tac.mp3");
+
 function startTimer() {
     let secondsLeft = 15;
     timerElement.innerText = `Tempo: ${secondsLeft}`;
+    ticTacSound.play();
     timer = setInterval(() => {
         secondsLeft--;
         timerElement.innerText = `Tempo: ${secondsLeft}`;
         if (secondsLeft === 0) {
             clearInterval(timer);
+            ticTacSound.pause();
+            ticTacSound.currentTime = 0;
             checkAnswer(null); // Tempo acabou, enviar null como resposta.
             console.log("Temporizador parado");// Log de depuração.
         }
@@ -146,6 +151,9 @@ submitButton.addEventListener("click", () => {
     const userAnswer = parseFloat(answerElement.value);
     checkAnswer(userAnswer);
     answerSubmitted = true; // Resposta enviada
+    clearInterval(timer);
+    ticTacSound.pause();
+    ticTacSound.currentTime = 0;
 });
 
 answerElement.addEventListener("keydown", function(event) {
@@ -153,6 +161,10 @@ answerElement.addEventListener("keydown", function(event) {
         const userAnswer = parseFloat(answerElement.value);
         checkAnswer(userAnswer);
         answerSubmitted = true;
+
+        clearInterval(timer);
+        ticTacSound.pause();
+        ticTacSound.currentTime = 0;
     }
 });
 
@@ -160,6 +172,8 @@ generateQuestionButton.addEventListener("click", generateQuestion);
 
 endQuizButton.addEventListener("click", () => {
     clearInterval(timer);
+    ticTacSound.pause();
+    ticTacSound.currentTime = 0;
     alert(`Quiz finalizado. Sua pontuação final é: R$${score.toFixed(2)}`);
 });
 
