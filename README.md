@@ -4,7 +4,7 @@
 
 Quiz de operações simples de matemática para auxiliar o estudo da tabuada.
 ## Tecnologia
-- JavaScript puro
+- JavaScript puro.
 ## Funcionalidades
 - [x] Gerar questão;
 - [x] Iniciar temporizador;
